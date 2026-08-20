@@ -17,6 +17,10 @@ VITE_GALLERY_PIN=preview
 
 Leave the value empty to skip the PIN screen.
 
+## Deploy on Netlify
+
+Build command `npm run build`, publish directory `dist`. `netlify.toml` already rewrites all routes to `index.html` so `/preview/...` and `/demo/...` (used inside the device iframe) work. Set `VITE_GALLERY_PIN` in the Netlify site environment if you want a production PIN other than `preview`.
+
 ## What’s inside
 
 33 original homepage designs inspired by how serious brands structure their sites — not copies of any company:

@@ -8,10 +8,14 @@ function expectedPin() {
   return String(value)
 }
 
+function isEmbeddedDemo() {
+  return window.location.pathname.startsWith('/demo/')
+}
+
 export function AuthGate({ children }: { children: ReactNode }) {
   const pin = expectedPin()
   const [unlocked, setUnlocked] = useState(() => {
-    if (!pin) return true
+    if (!pin || isEmbeddedDemo()) return true
     return sessionStorage.getItem(STORAGE_KEY) === '1'
   })
   const [attempt, setAttempt] = useState('')
